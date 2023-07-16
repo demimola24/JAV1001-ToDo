@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorBackground"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TODO APP"
+        android:layout_marginTop="@dimen/dp_16"
+        android:textSize="@dimen/sp_22"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_selection_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_16"
+        android:gravity="center"
+        android:text="Track your to-do items here"
+        android:layout_marginTop="@dimen/dp_8"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_conversion_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter a task summary"
+        android:layout_marginTop="@dimen/dp_16"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginStart="@dimen/dp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_selection_subtitle"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_task"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/custom_height"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        app:boxStrokeWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_conversion_hint" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:background="@drawable/edit_text_background"
+            android:layout_height="@dimen/custom_height"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_task"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="Add Task"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_task"
+        app:strokeColor="@color/black" />
+
+
+    <TextView
+        android:id="@+id/tv_result_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Todo List"
+        android:layout_marginTop="@dimen/dp_16"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginStart="@dimen/dp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_task"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/task_rv"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginEnd="@dimen/dp_16"
+        tools:listitem="@layout/item_todo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_hint"
+        android:layout_height="0dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
