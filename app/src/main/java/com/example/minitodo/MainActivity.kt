@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener{
 
     override fun onItemChecked(item: TaskModel) {
         //On Item Checked Callback
-        mutableList.find { it.description == item.description }?.done = true
+        val checked  = item.done
+        mutableList.find { it.description == item.description }?.done = !checked
         adapter.updateList(mutableList)
 
     }
