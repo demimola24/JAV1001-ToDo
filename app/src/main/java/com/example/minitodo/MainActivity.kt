@@ -7,9 +7,13 @@ import com.example.minitodo.data.TaskModel
 import com.example.minitodo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener{
+    //Activity Binding Object
     private lateinit var binding: ActivityMainBinding
+
+    //TaskAdapter for rendering items in the recycler view
     private lateinit var adapter: TaskAdapter
 
+    //Todo List Holder
     private val mutableList = mutableListOf<TaskModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +23,7 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener{
         adapter = TaskAdapter(this)
         binding.taskRv.adapter = adapter
 
+        //Add Task OnClickListener
         binding.btnAddTask.setOnClickListener {
             val desc =  binding.tlTask.editText?.text.toString()
             if(desc.isNotEmpty()){
@@ -30,11 +35,13 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener{
     }
 
     override fun onItemDeleted(item: TaskModel) {
+        //On Item Deleted Callback
         mutableList.remove(item)
         adapter.updateList(mutableList)
     }
 
     override fun onItemChecked(item: TaskModel) {
+        //On Item Checked Callback
         mutableList.find { it.description == item.description }?.done = true
         adapter.updateList(mutableList)
 

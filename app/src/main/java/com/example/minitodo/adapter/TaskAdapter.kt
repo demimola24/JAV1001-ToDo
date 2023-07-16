@@ -48,11 +48,14 @@ class TaskAdapter(private val delegate: OnItemClickListener) :
 
     }
 
+
+    //Actions Delegate or Callback
     interface OnItemClickListener {
         fun onItemDeleted(item: TaskModel)
         fun onItemChecked(item: TaskModel)
     }
 
+    //Update List Items
     fun updateList(list: List<TaskModel>) {
         tasks.clear()
         tasks.addAll(list)
